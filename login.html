@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<header>
+		<h1>Join me in supporting my Charity program!/h1>
+	</header>
+	<section>
+		<p>I am supporting this charity organization because:</p>
+		<ul>
+			<li>They provide crucial support to the extremely endangered Philippine Eagle</li>
+			<li>They have a proven track record of making a positive impact</li>
+			<li>Their mission aligns with my personal values and beliefs</li>
+		</ul>
+		<p>Please fill out the form below to join me in supporting this important cause.</p>
+	</section>
+	<form action="submit.php" method="POST">
+		<label for="firstname">First name: <span style="color: red;">*</span></label>
+		<input type="text" id="firstname" name="firstname" required>
+		<br>
+	<label for="lastname">Last name: <span style="color: red;">*</span></label>
+	<input type="text" id="lastname" name="lastname" required><br>
+
+	<label for="sex">Sex: <span style="color: red;">*</span></label><br>
+	<input type="radio" id="male" name="sex" value="male" required>
+	<label for="male">Male</label><br>
+	<input type="radio" id="female" name="sex" value="female" required>
+	<label for="female">Female</label><br>
+	<input type="radio" id="prefer_not_to_say" name="sex" value="prefer_not_to_say" required>
+	<label for="prefer_not_to_say">Prefer not to say</label><br>
+
+	<label for="email">Email address: <span style="color: red;">*</span></label>
+	<input type="email" id="email" name="email" required><br>
+
+	<label for="contact_number">Contact number:</label>
+	<input type="text" id="contact_number" name="contact_number"><br>
+
+	<input type="submit" value="Submit">
+	<input type="reset" value="Reset">
+</form>
+<script>
+	const form = document.querySelector('form');
+	form.addEventListener('submit', function(event) {
+		const firstname = document.querySelector('#firstname').value;
+		const lastname = document.querySelector('#lastname').value;
+		const sex = document.querySelector('input[name="sex"]:checked').value;
+		const email = document.querySelector('#email').value;
+		const contact_number = document.querySelector('#contact_number').value;
+
+		if (!firstname || !lastname || !sex || !email) {
+			event.preventDefault();
+			alert('Please fill out all required areas.');
+		}
+	});
+</script>
+</body>
+</html>
